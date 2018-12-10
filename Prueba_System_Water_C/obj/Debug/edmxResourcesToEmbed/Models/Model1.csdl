@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Sistem_WalterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Clientes">
+    <Key>
+      <PropertyRef Name="Id_Cliente" />
+    </Key>
+    <Property Name="Id_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Completo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Edad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DUI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Nacimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Roll" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="Fecha_Registro" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Tbl_Usuario" Relationship="Self.FK_Tbl_Usuario_Tbl_Clientes" FromRole="Tbl_Clientes" ToRole="Tbl_Usuario" />
+    <NavigationProperty Name="Tbl_Lectura" Relationship="Sistem_WalterModel.FK_Tbl_Lectura_Tbl_Clientes" FromRole="Tbl_Clientes" ToRole="Tbl_Lectura" />
+    <NavigationProperty Name="Tbl_Pago" Relationship="Sistem_WalterModel.FK_Tbl_Pago2_Tbl_Cliente2" FromRole="Tbl_Clientes" ToRole="Tbl_Pago" />
+  </EntityType>
+  <EntityType Name="Tbl_ClientesNuevos">
+    <Key>
+      <PropertyRef Name="Id_Clientes_Nuevos" />
+    </Key>
+    <Property Name="Id_Clientes_Nuevos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_Inicio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Monto_a_Pagar" Type="Int32" />
+    <Property Name="Plazo" Type="Int32" />
+    <Property Name="Cuota" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoConfig" Type="Int32" />
+    <Property Name="Fecha_Registro" Type="DateTime" Precision="0" />
+    <Property Name="Estado2" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Tbl_Configuraciones">
+    <Key>
+      <PropertyRef Name="Id_Configuracion" />
+    </Key>
+    <Property Name="Id_Configuracion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cuota_Fija" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Mora" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Valor_Metro" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Valor_Metro2" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Valor_Metro3" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Multas" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Detalles" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="Fecha_Registro" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Tbl_Empleados">
+    <Key>
+      <PropertyRef Name="Id_Empleados" />
+    </Key>
+    <Property Name="Id_Empleados" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Completo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Edad" Type="Int32" />
+    <Property Name="Cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DUI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="Fecha_Registro" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Tbl_Empresa">
+    <Key>
+      <PropertyRef Name="Id_Empresa" />
+    </Key>
+    <Property Name="Id_Empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NIT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Rubro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="FechaRegistro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Rol">
+    <Key>
+      <PropertyRef Name="Id_Rol" />
+    </Key>
+    <Property Name="Id_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tbl_Usuario" Relationship="Self.FK_Tbl_Usuario_Tbl_Rol" FromRole="Tbl_Rol" ToRole="Tbl_Usuario" />
+  </EntityType>
+  <EntityType Name="Tbl_Usuario">
+    <Key>
+      <PropertyRef Name="Id_Usuarios" />
+    </Key>
+    <Property Name="Id_Usuarios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Nombre" Type="Int32" />
+    <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Rol" Type="Int32" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="Fecha_Registro" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Tbl_Clientes" Relationship="Self.FK_Tbl_Usuario_Tbl_Clientes" FromRole="Tbl_Usuario" ToRole="Tbl_Clientes" />
+    <NavigationProperty Name="Tbl_Rol" Relationship="Self.FK_Tbl_Usuario_Tbl_Rol" FromRole="Tbl_Usuario" ToRole="Tbl_Rol" />
+  </EntityType>
+  <Association Name="FK_Tbl_Usuario_Tbl_Clientes">
+    <End Role="Tbl_Clientes" Type="Self.Tbl_Clientes" Multiplicity="0..1" />
+    <End Role="Tbl_Usuario" Type="Self.Tbl_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Clientes">
+        <PropertyRef Name="Id_Cliente" />
+      </Principal>
+      <Dependent Role="Tbl_Usuario">
+        <PropertyRef Name="Id_Nombre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Usuario_Tbl_Rol">
+    <End Role="Tbl_Rol" Type="Self.Tbl_Rol" Multiplicity="0..1" />
+    <End Role="Tbl_Usuario" Type="Self.Tbl_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Rol">
+        <PropertyRef Name="Id_Rol" />
+      </Principal>
+      <Dependent Role="Tbl_Usuario">
+        <PropertyRef Name="Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Sistem_WalterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Tbl_Clientes" EntityType="Self.Tbl_Clientes" />
+    <EntitySet Name="Tbl_ClientesNuevos" EntityType="Self.Tbl_ClientesNuevos" />
+    <EntitySet Name="Tbl_Configuraciones" EntityType="Self.Tbl_Configuraciones" />
+    <EntitySet Name="Tbl_Empleados" EntityType="Self.Tbl_Empleados" />
+    <EntitySet Name="Tbl_Empresa" EntityType="Self.Tbl_Empresa" />
+    <EntitySet Name="Tbl_Rol" EntityType="Self.Tbl_Rol" />
+    <EntitySet Name="Tbl_Usuario" EntityType="Self.Tbl_Usuario" />
+    <AssociationSet Name="FK_Tbl_Usuario_Tbl_Clientes" Association="Self.FK_Tbl_Usuario_Tbl_Clientes">
+      <End Role="Tbl_Clientes" EntitySet="Tbl_Clientes" />
+      <End Role="Tbl_Usuario" EntitySet="Tbl_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Usuario_Tbl_Rol" Association="Self.FK_Tbl_Usuario_Tbl_Rol">
+      <End Role="Tbl_Rol" EntitySet="Tbl_Rol" />
+      <End Role="Tbl_Usuario" EntitySet="Tbl_Usuario" />
+    </AssociationSet>
+    <EntitySet Name="Tbl_Lectura" EntityType="Sistem_WalterModel.Tbl_Lectura" />
+    <AssociationSet Name="FK_Tbl_Lectura_Tbl_Clientes" Association="Sistem_WalterModel.FK_Tbl_Lectura_Tbl_Clientes">
+      <End Role="Tbl_Clientes" EntitySet="Tbl_Clientes" />
+      <End Role="Tbl_Lectura" EntitySet="Tbl_Lectura" />
+    </AssociationSet>
+    <EntitySet Name="Tbl_Pago" EntityType="Sistem_WalterModel.Tbl_Pago" />
+    <AssociationSet Name="FK_Tbl_Pago2_Tbl_Cliente2" Association="Sistem_WalterModel.FK_Tbl_Pago2_Tbl_Cliente2">
+      <End Role="Tbl_Clientes" EntitySet="Tbl_Clientes" />
+      <End Role="Tbl_Pago" EntitySet="Tbl_Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Pago_Tbl_Lectura" Association="Sistem_WalterModel.FK_Tbl_Pago_Tbl_Lectura">
+      <End Role="Tbl_Lectura" EntitySet="Tbl_Lectura" />
+      <End Role="Tbl_Pago" EntitySet="Tbl_Pago" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Tbl_Lectura">
+    <Key>
+      <PropertyRef Name="Id_Lectura" />
+    </Key>
+    <Property Name="Id_Lectura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Lectura" Type="Int32" />
+    <Property Name="Id_Cliente" Type="Int32" />
+    <Property Name="Estado_Lectura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="Fecha_Registro" Type="DateTime" Precision="0" />
+    <Property Name="Id_Lecturas" Type="Int32" />
+    <Property Name="Mes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tbl_Clientes" Relationship="Sistem_WalterModel.FK_Tbl_Lectura_Tbl_Clientes" FromRole="Tbl_Lectura" ToRole="Tbl_Clientes" />
+    <NavigationProperty Name="Tbl_Pago" Relationship="Sistem_WalterModel.FK_Tbl_Pago_Tbl_Lectura" FromRole="Tbl_Lectura" ToRole="Tbl_Pago" />
+  </EntityType>
+  <Association Name="FK_Tbl_Lectura_Tbl_Clientes">
+    <End Type="Sistem_WalterModel.Tbl_Clientes" Role="Tbl_Clientes" Multiplicity="0..1" />
+    <End Type="Sistem_WalterModel.Tbl_Lectura" Role="Tbl_Lectura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Clientes">
+        <PropertyRef Name="Id_Cliente" />
+      </Principal>
+      <Dependent Role="Tbl_Lectura">
+        <PropertyRef Name="Id_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Tbl_Pago">
+    <Key>
+      <PropertyRef Name="Id_Pago" />
+    </Key>
+    <Property Name="Id_Pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Cliente" Type="Int32" />
+    <Property Name="Id_Lectura" Type="Int32" />
+    <Property Name="Numero_Factura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Lectura_Anterior" Type="Int32" />
+    <Property Name="Lectura_Actual" Type="Int32" />
+    <Property Name="Consumo" Type="Int32" />
+    <Property Name="Cuota_Fija" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Mes_Atrasado" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Mora" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Total" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Fecha_Lectura" Type="DateTime" Precision="0" />
+    <Property Name="Fecha_Pago" Type="DateTime" Precision="0" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="Fecha_Registro" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Tbl_Clientes" Relationship="Sistem_WalterModel.FK_Tbl_Pago2_Tbl_Cliente2" FromRole="Tbl_Pago" ToRole="Tbl_Clientes" />
+    <NavigationProperty Name="Tbl_Lectura" Relationship="Sistem_WalterModel.FK_Tbl_Pago_Tbl_Lectura" FromRole="Tbl_Pago" ToRole="Tbl_Lectura" />
+  </EntityType>
+  <Association Name="FK_Tbl_Pago2_Tbl_Cliente2">
+    <End Type="Sistem_WalterModel.Tbl_Clientes" Role="Tbl_Clientes" Multiplicity="0..1" />
+    <End Type="Sistem_WalterModel.Tbl_Pago" Role="Tbl_Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Clientes">
+        <PropertyRef Name="Id_Cliente" />
+      </Principal>
+      <Dependent Role="Tbl_Pago">
+        <PropertyRef Name="Id_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Pago_Tbl_Lectura">
+    <End Type="Sistem_WalterModel.Tbl_Lectura" Role="Tbl_Lectura" Multiplicity="0..1" />
+    <End Type="Sistem_WalterModel.Tbl_Pago" Role="Tbl_Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Lectura">
+        <PropertyRef Name="Id_Lectura" />
+      </Principal>
+      <Dependent Role="Tbl_Pago">
+        <PropertyRef Name="Id_Lectura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

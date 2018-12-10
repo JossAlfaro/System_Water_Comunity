@@ -1,0 +1,74 @@
+﻿@model Prueba_System_Water_C.Models.Tbl_Lectura
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tbl_Lectura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Lectura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lectura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado_Lectura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado_Lectura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Registro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Registro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Lecturas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Lecturas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tbl_Clientes.Nombre_Completo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tbl_Clientes.Nombre_Completo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Lectura }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

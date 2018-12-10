@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Sistem_WalterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_Clientes">
+    <Key>
+      <PropertyRef Name="Id_Cliente" />
+    </Key>
+    <Property Name="Id_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_Completo" Type="varchar" MaxLength="100" />
+    <Property Name="Edad" Type="varchar" MaxLength="50" />
+    <Property Name="DUI" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" />
+    <Property Name="Direccion" Type="varchar" MaxLength="100" />
+    <Property Name="Fecha_Nacimiento" Type="varchar" MaxLength="50" />
+    <Property Name="Roll" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="int" />
+    <Property Name="Fecha_Registro" Type="date" />
+  </EntityType>
+  <EntityType Name="Tbl_ClientesNuevos">
+    <Key>
+      <PropertyRef Name="Id_Clientes_Nuevos" />
+    </Key>
+    <Property Name="Id_Clientes_Nuevos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Fecha_Inicio" Type="varchar" MaxLength="50" />
+    <Property Name="Monto_a_Pagar" Type="int" />
+    <Property Name="Plazo" Type="int" />
+    <Property Name="Cuota" Type="int" StoreGeneratedPattern="Computed" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+    <Property Name="EstadoConfig" Type="int" />
+    <Property Name="Fecha_Registro" Type="date" />
+    <Property Name="Estado2" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Configuraciones">
+    <Key>
+      <PropertyRef Name="Id_Configuracion" />
+    </Key>
+    <Property Name="Id_Configuracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cuota_Fija" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Mora" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Valor_Metro" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Valor_Metro2" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Valor_Metro3" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Multas" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Detalles" Type="varchar" MaxLength="500" />
+    <Property Name="Estado" Type="int" />
+    <Property Name="Fecha_Registro" Type="date" />
+  </EntityType>
+  <EntityType Name="Tbl_Empleados">
+    <Key>
+      <PropertyRef Name="Id_Empleados" />
+    </Key>
+    <Property Name="Id_Empleados" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_Completo" Type="varchar" MaxLength="50" />
+    <Property Name="Edad" Type="int" />
+    <Property Name="Cargo" Type="varchar" MaxLength="50" />
+    <Property Name="DUI" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" />
+    <Property Name="Direccion" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="int" />
+    <Property Name="Fecha_Registro" Type="date" />
+  </EntityType>
+  <EntityType Name="Tbl_Empresa">
+    <Key>
+      <PropertyRef Name="Id_Empresa" />
+    </Key>
+    <Property Name="Id_Empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="200" />
+    <Property Name="Direccion" Type="varchar" MaxLength="50" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" />
+    <Property Name="NIT" Type="varchar" MaxLength="50" />
+    <Property Name="Rubro" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="int" />
+    <Property Name="FechaRegistro" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Tbl_Lectura">
+    <Key>
+      <PropertyRef Name="Id_Lectura" />
+    </Key>
+    <Property Name="Id_Lectura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Lectura" Type="int" />
+    <Property Name="Id_Cliente" Type="int" />
+    <Property Name="Estado_Lectura" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="int" />
+    <Property Name="Fecha_Registro" Type="date" />
+    <Property Name="Id_Lecturas" Type="int" />
+    <Property Name="Mes" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Pago">
+    <Key>
+      <PropertyRef Name="Id_Pago" />
+    </Key>
+    <Property Name="Id_Pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Cliente" Type="int" />
+    <Property Name="Id_Lectura" Type="int" />
+    <Property Name="Numero_Factura" Type="varchar" MaxLength="50" />
+    <Property Name="Lectura_Anterior" Type="int" />
+    <Property Name="Lectura_Actual" Type="int" />
+    <Property Name="Consumo" Type="int" />
+    <Property Name="Cuota_Fija" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Mes_Atrasado" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Mora" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Total" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Fecha_Lectura" Type="date" />
+    <Property Name="Fecha_Pago" Type="date" />
+    <Property Name="Estado" Type="int" />
+    <Property Name="Fecha_Registro" Type="date" />
+  </EntityType>
+  <EntityType Name="Tbl_Rol">
+    <Key>
+      <PropertyRef Name="Id_Rol" />
+    </Key>
+    <Property Name="Id_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rol" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Usuario">
+    <Key>
+      <PropertyRef Name="Id_Usuarios" />
+    </Key>
+    <Property Name="Id_Usuarios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Nombre" Type="int" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Contraseña" Type="varchar" MaxLength="50" />
+    <Property Name="Rol" Type="int" />
+    <Property Name="Estado" Type="int" />
+    <Property Name="Fecha_Registro" Type="date" />
+  </EntityType>
+  <Association Name="FK_Tbl_Lectura_Tbl_Clientes">
+    <End Role="Tbl_Clientes" Type="Self.Tbl_Clientes" Multiplicity="0..1" />
+    <End Role="Tbl_Lectura" Type="Self.Tbl_Lectura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Clientes">
+        <PropertyRef Name="Id_Cliente" />
+      </Principal>
+      <Dependent Role="Tbl_Lectura">
+        <PropertyRef Name="Id_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Pago_Tbl_Lectura">
+    <End Role="Tbl_Lectura" Type="Self.Tbl_Lectura" Multiplicity="0..1" />
+    <End Role="Tbl_Pago" Type="Self.Tbl_Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Lectura">
+        <PropertyRef Name="Id_Lectura" />
+      </Principal>
+      <Dependent Role="Tbl_Pago">
+        <PropertyRef Name="Id_Lectura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Pago2_Tbl_Cliente2">
+    <End Role="Tbl_Clientes" Type="Self.Tbl_Clientes" Multiplicity="0..1" />
+    <End Role="Tbl_Pago" Type="Self.Tbl_Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Clientes">
+        <PropertyRef Name="Id_Cliente" />
+      </Principal>
+      <Dependent Role="Tbl_Pago">
+        <PropertyRef Name="Id_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Usuario_Tbl_Clientes">
+    <End Role="Tbl_Clientes" Type="Self.Tbl_Clientes" Multiplicity="0..1" />
+    <End Role="Tbl_Usuario" Type="Self.Tbl_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Clientes">
+        <PropertyRef Name="Id_Cliente" />
+      </Principal>
+      <Dependent Role="Tbl_Usuario">
+        <PropertyRef Name="Id_Nombre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Usuario_Tbl_Rol">
+    <End Role="Tbl_Rol" Type="Self.Tbl_Rol" Multiplicity="0..1" />
+    <End Role="Tbl_Usuario" Type="Self.Tbl_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Rol">
+        <PropertyRef Name="Id_Rol" />
+      </Principal>
+      <Dependent Role="Tbl_Usuario">
+        <PropertyRef Name="Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Sistem_WalterModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Clientes" EntityType="Self.Tbl_Clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_ClientesNuevos" EntityType="Self.Tbl_ClientesNuevos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Configuraciones" EntityType="Self.Tbl_Configuraciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Empleados" EntityType="Self.Tbl_Empleados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Empresa" EntityType="Self.Tbl_Empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Lectura" EntityType="Self.Tbl_Lectura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Pago" EntityType="Self.Tbl_Pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Rol" EntityType="Self.Tbl_Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Usuario" EntityType="Self.Tbl_Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tbl_Lectura_Tbl_Clientes" Association="Self.FK_Tbl_Lectura_Tbl_Clientes">
+      <End Role="Tbl_Clientes" EntitySet="Tbl_Clientes" />
+      <End Role="Tbl_Lectura" EntitySet="Tbl_Lectura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Pago_Tbl_Lectura" Association="Self.FK_Tbl_Pago_Tbl_Lectura">
+      <End Role="Tbl_Lectura" EntitySet="Tbl_Lectura" />
+      <End Role="Tbl_Pago" EntitySet="Tbl_Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Pago2_Tbl_Cliente2" Association="Self.FK_Tbl_Pago2_Tbl_Cliente2">
+      <End Role="Tbl_Clientes" EntitySet="Tbl_Clientes" />
+      <End Role="Tbl_Pago" EntitySet="Tbl_Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Usuario_Tbl_Clientes" Association="Self.FK_Tbl_Usuario_Tbl_Clientes">
+      <End Role="Tbl_Clientes" EntitySet="Tbl_Clientes" />
+      <End Role="Tbl_Usuario" EntitySet="Tbl_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Usuario_Tbl_Rol" Association="Self.FK_Tbl_Usuario_Tbl_Rol">
+      <End Role="Tbl_Rol" EntitySet="Tbl_Rol" />
+      <End Role="Tbl_Usuario" EntitySet="Tbl_Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

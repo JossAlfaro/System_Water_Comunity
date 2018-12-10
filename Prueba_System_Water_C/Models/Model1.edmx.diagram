@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8180431aaa074eda8f9d8e1795fa3dec" Name="Diagram1">
+        <EntityTypeShape EntityType="Sistem_WalterModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sistem_WalterModel.Tbl_Clientes" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sistem_WalterModel.Tbl_ClientesNuevos" Width="1.5" PointX="8" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sistem_WalterModel.Tbl_Configuraciones" Width="1.5" PointX="8.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sistem_WalterModel.Tbl_Empleados" Width="1.5" PointX="8.125" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sistem_WalterModel.Tbl_Empresa" Width="1.5" PointX="10.625" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sistem_WalterModel.Tbl_Rol" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Sistem_WalterModel.Tbl_Usuario" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="Sistem_WalterModel.FK_Tbl_Usuario_Tbl_Clientes" ManuallyRouted="false" />
+        <AssociationConnector Association="Sistem_WalterModel.FK_Tbl_Usuario_Tbl_Rol" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Sistem_WalterModel.Tbl_Lectura" Width="1.5" PointX="3" PointY="3.125" />
+        <AssociationConnector Association="Sistem_WalterModel.FK_Tbl_Lectura_Tbl_Clientes" />
+        <EntityTypeShape EntityType="Sistem_WalterModel.Tbl_Pago" Width="1.5" PointX="5.25" PointY="10.125" />
+        <AssociationConnector Association="Sistem_WalterModel.FK_Tbl_Pago2_Tbl_Cliente2" />
+        <AssociationConnector Association="Sistem_WalterModel.FK_Tbl_Pago_Tbl_Lectura" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
